@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekomendasi untuk {{ user.username }}</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        h1, h2 { color: #333; }
+        .movie { border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+        .movie h3 { margin-top: 0; }
+        .movie p { margin-bottom: 10px; }
+        .feedback-form button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .feedback-form .btn-relevant { background-color: #28a745; color: white; }
+        .feedback-form .btn-irrelevant { background-color: #dc3545; color: white; }
+        .nav-links { margin-top: 20px; }
+        a { text-decoration: none; color: #007BFF; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Rekomendasi Film untuk 🎬 {{ user.username }}</h1>
+    <p>Berikut adalah beberapa film yang mungkin Anda sukai berdasarkan preferensi Anda.</p>
+
+    {% if recommendations %}
+        <h2>Daftar Rekomendasi:</h2>
+        {% for movie in recommendations %}
+            <div class="movie">
+                <h3>{{ movie.title }}</h3>
+                <p><strong>Genre:</strong> {{ movie.genre }}</p>
+
+                <form class="feedback-form" action="{{ url_for('submit_feedback') }}" method="post">
+                    <input type="hidden" name="username" value="{{ user.username }}">
+                    <input type="hidden" name="movie_id" value="{{ movie.id }}">
+                    <button type="submit" name="feedback_type" value="relevan" class="btn-relevant">👍 Relevan</button>
+                    <button type="submit" name="feedback_type" value="tidak relevan" class="btn-irrelevant">👎 Tidak Relevan</button>
+                </form>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Tidak ada rekomendasi baru untuk Anda saat ini. Mungkin Anda sudah menonton semua yang kami miliki!</p>
+    {% endif %}
+
+    <div class="nav-links">
+        <a href="{{ url_for('show_profile', username=user.username) }}">Lihat Profil</a> |
+        <a href="{{ url_for('index') }}">Pilih Pengguna Lain</a>
+    </div>
+</body>
+</html>

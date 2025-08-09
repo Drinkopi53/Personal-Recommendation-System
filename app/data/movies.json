@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "title": "Galaxy Quest",
+    "genre": "Sci-Fi"
+  },
+  {
+    "id": 2,
+    "title": "The Martian",
+    "genre": "Sci-Fi"
+  },
+  {
+    "id": 3,
+    "title": "Blade Runner 2049",
+    "genre": "Sci-Fi"
+  },
+  {
+    "id": 4,
+    "title": "The Shawshank Redemption",
+    "genre": "Drama"
+  },
+  {
+    "id": 5,
+    "title": "Forrest Gump",
+    "genre": "Drama"
+  },
+  {
+    "id": 6,
+    "title": "The Godfather",
+    "genre": "Drama"
+  },
+  {
+    "id": 7,
+    "title": "Die Hard",
+    "genre": "Action"
+  },
+  {
+    "id": 8,
+    "title": "Mad Max: Fury Road",
+    "genre": "Action"
+  },
+  {
+    "id": 9,
+    "title": "John Wick",
+    "genre": "Action"
+  },
+  {
+    "id": 10,
+    "title": "Superbad",
+    "genre": "Comedy"
+  },
+  {
+    "id": 11,
+    "title": "The Hangover",
+    "genre": "Comedy"
+  },
+  {
+    "id": 12,
+    "title": "Step Brothers",
+    "genre": "Comedy"
+  },
+  {
+    "id": 13,
+    "title": "Spirited Away",
+    "genre": "Animation"
+  },
+  {
+    "id": 14,
+    "title": "Toy Story",
+    "genre": "Animation"
+  },
+  {
+    "id": 15,
+    "title": "Spider-Man: Into the Spider-Verse",
+    "genre": "Animation"
+  }
+]

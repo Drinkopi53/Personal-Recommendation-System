@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil {{ user.username }}</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        h1 { color: #333; }
+        .profile-info { border: 1px solid #ddd; padding: 20px; border-radius: 5px; }
+        .profile-info p { font-size: 1.1em; }
+        ul { list-style-type: none; padding: 0; }
+        li { background-color: #f2f2f2; padding: 10px; border-radius: 5px; margin-bottom: 5px; display: inline-block; }
+        .nav-links { margin-top: 20px; }
+        a { text-decoration: none; color: #007BFF; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Profil Pengguna: 👤 {{ user.username }}</h1>
+
+    <div class="profile-info">
+        <h2>Informasi Pengguna</h2>
+        <p><strong>Nama Pengguna:</strong> {{ user.username }}</p>
+
+        <h3>Genre Favorit:</h3>
+        {% if user.preferences %}
+            <ul>
+                {% for genre in user.preferences %}
+                    <li>{{ genre }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Anda belum mengatur preferensi genre.</p>
+        {% endif %}
+    </div>
+
+    <div class="nav-links">
+        <a href="{{ url_for('show_recommendations', username=user.username) }}">Kembali ke Rekomendasi</a> |
+        <a href="{{ url_for('index') }}">Pilih Pengguna Lain</a>
+    </div>
+</body>
+</html>
